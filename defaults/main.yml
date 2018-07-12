@@ -1,2 +1,4 @@
 ---
 # defaults file for sbaerlocher.remote-desktop
+
+remote_desktop_enabled: false
