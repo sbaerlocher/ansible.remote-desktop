@@ -9,11 +9,17 @@
     data: 00000000
     type: dword
     state: "{{ 'present' if remote_desktop_enabled else 'absent' }}"
+  tags:
+    - configuration
 
 - name: Firewall Enable rule for Remote Desktop Services
   win_shell: Enable-NetFirewallRule -DisplayGroup "Remotedesktop"
   when: remote_desktop_enabled
+  tags:
+    - configuration
 
 - name: Firewall Disable rule for Remote Desktop Services
   win_shell: Disable-NetFirewallRule -DisplayGroup "Remotedesktop"
   when: not remote_desktop_enabled
+  tags:
+    - configuration
