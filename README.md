@@ -21,6 +21,7 @@ None
 | Variable             | Default     | Comments (type)                                   |
 | :---                 | :---        | :---                                              |
 | remote_desktop_enabled | false | |
+| remote_desktop_port | 3389 | |
 
 ## Dependencies
 
@@ -35,6 +36,10 @@ None
 ```
 
 ## Changelog
+
+### 1.1.0
+
+* Spport for change the Remote Desktop Connection port
 
 ### 1.0.0
 
