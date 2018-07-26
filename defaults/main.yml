@@ -2,3 +2,4 @@
 # defaults file for sbaerlocher.remote-desktop
 
 remote_desktop_enabled: false
+remote_desktop_port: 3389
