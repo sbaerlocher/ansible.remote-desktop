@@ -9,11 +9,50 @@
     data: 00000000
     type: dword
     state: "{{ 'present' if remote_desktop_enabled else 'absent' }}"
+  register: register_remote_desktop_enabled
+  tags:
+    - configuration
 
 - name: Firewall Enable rule for Remote Desktop Services
   win_shell: Enable-NetFirewallRule -DisplayGroup "Remotedesktop"
-  when: remote_desktop_enabled
+  when: remote_desktop_enabled and register_remote_desktop_enabled.changed
+  tags:
+    - configuration
 
 - name: Firewall Disable rule for Remote Desktop Services
   win_shell: Disable-NetFirewallRule -DisplayGroup "Remotedesktop"
-  when: not remote_desktop_enabled
+  when: not remote_desktop_enabled and register_remote_desktop_enabled.changed
+  tags:
+    - configuration
+
+- name: Set then Remote Desktop Port
+  win_regedit:
+    path: HKLM:\SYSTEM\CurrentControlSet\Control\Terminal Server\WinStations\RDP-Tcp
+    name: PortNumber
+    data: "{{ remote_desktop_port }}"
+    type: dword
+  tags:
+    - configuration
+
+- name: Firewall rule to allow RDP on TCP port 3389
+  win_firewall_rule:
+    name: "{{ item.name }}"
+    description: "{{ item.description }}"
+    localport: "{{ remote_desktop_port }}"
+    action: allow
+    direction: in
+    protocol: "{{ item.protocol }}"
+    profiles: domain,private,public
+    state: present
+    enabled: "{{ 'true' if remote_desktop_enabled else 'false' }}"
+    service: termservice
+    program: C:\Windows\system32\svchost.exe
+  with_items:
+    - name: Remotedesktop - Benutzermodus (TCP eingehend)
+      description: Eingehende Regel für den Remotedesktopdienst, die RDP-Datenverkehr zulässt. [TCP 3389]
+      protocol: tcp
+    - name: Remotedesktop - Benutzermodus (UDP eingehend)
+      description: Eingehende Regel für den Remotedesktopdienst, die RDP-Datenverkehr zulässt [UDP 3389]
+      protocol: udp
+  tags:
+    - configuration
