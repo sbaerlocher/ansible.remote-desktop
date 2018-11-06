@@ -22,6 +22,8 @@ None
 | :---                 | :---        | :---                                              |
 | remote_desktop_enabled | false | |
 | remote_desktop_port | 3389 | |
+|remote_desktop_securitylayer | "1" | [![getadmx doc](https://img.shields.io/badge/getadmx-doc-blue.svg)](https://getadmx.com/?Category=Windows_10_2016&Policy=Microsoft.Policies.TerminalServer::TS_SECURITY_LAYER_POLICY) |
+| remote_desktop_minencryptionLevel | "3" | [![getadmx doc](https://img.shields.io/badge/getadmx-doc-blue.svg)](https://getadmx.com/?Category=Windows_10_2016&Policy=Microsoft.Policies.TerminalServer::TS_ENCRYPTION_POLICY) |
 
 ## Dependencies
 

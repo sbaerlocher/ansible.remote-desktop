@@ -56,3 +56,25 @@
       protocol: udp
   tags:
     - configuration
+
+# https://getadmx.com/?Category=Windows_10_2016&Policy=Microsoft.Policies.TerminalServer::TS_SECURITY_LAYER_POLICY
+- name: Require use of specific security layer for remote (RDP) connections
+  win_regedit:
+    path: HKLM:\SOFTWARE\Policies\Microsoft\Windows NT\Terminal Services
+    name: SecurityLayer
+    data: "{{ remote_desktop_securitylayer }}"
+    type: dword
+    state: "{{ 'present' if remote_desktop_enabled else 'absent' }}"
+  tags:
+    - configuration
+
+# https://getadmx.com/?Category=Windows_10_2016&Policy=Microsoft.Policies.TerminalServer::TS_ENCRYPTION_POLICY
+- name: Set client connection encryption level
+  win_regedit:
+    path: HKLM:\SOFTWARE\Policies\Microsoft\Windows NT\Terminal Services
+    name: MinEncryptionLevel
+    data: "{{ remote_desktop_minencryptionLevel }}"
+    type: dword
+    state: "{{ 'present' if remote_desktop_enabled else 'absent' }}"
+  tags:
+    - configuration
