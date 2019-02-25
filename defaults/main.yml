@@ -2,6 +2,9 @@
 # defaults file for sbaerlocher.remote-desktop
 
 remote_desktop_enabled: false
+remote_desktop_minencryptionLevel: '3'
 remote_desktop_port: 3389
-remote_desktop_securitylayer: "1"
-remote_desktop_minencryptionLevel: "3"
+remote_desktop_shutdown_disable: false
+remote_desktop_securitylayer: '1'
+remote_desktop_group: 'Remotedesktopbenutzer'
+remote_desktop_members: []
