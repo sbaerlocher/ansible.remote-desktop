@@ -21,7 +21,12 @@ None
 | Variable             | Default     | Comments (type)                                   |
 | :---                 | :---        | :---                                              |
 | remote_desktop_enabled | false | |
+| remote_desktop_minencryptionLevel | '3' | [![getadmx doc](https://img.shields.io/badge/getadmx-doc-blue.svg)](https://getadmx.com/?Category=Windows_10_2016&Policy=Microsoft.Policies.TerminalServer::TS_ENCRYPTION_POLICY) |
 | remote_desktop_port | 3389 | |
+| remote_desktop_shutdown_disable | false | Disables the ability to shut down the device. |
+|remote_desktop_securitylayer | '1'  | [![getadmx doc](https://img.shields.io/badge/getadmx-doc-blue.svg)](https://getadmx.com/?Category=Windows_10_2016&Policy=Microsoft.Policies.TerminalServer::TS_SECURITY_LAYER_POLICY) |
+| remote_desktop_group | 'Remotedesktopbenutzer' | Group for logging on to the Remote Desktop Service. |
+| remote_desktop_members | [] | Users or groups who are allowed to log on to the Remote Desktop. |
 
 ## Dependencies
 
@@ -37,9 +42,14 @@ None
 
 ## Changelog
 
+### 1.2.0
+
+* Support for Users or groups who are allowed to log on to the Remote Desktop
+* Support for disables the ability to shut down the device
+
 ### 1.1.0
 
-* Spport for change the Remote Desktop Connection port
+* Support for change the Remote Desktop Connection port
 
 ### 1.0.0
 
