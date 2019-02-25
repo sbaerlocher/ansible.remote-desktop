@@ -12,7 +12,7 @@ galaxy_info:
         - all
 
   galaxy_tags:
-    - remote desktop
+    - 'remote desktop'
     - management
 
 dependencies: []

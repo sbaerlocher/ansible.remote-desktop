@@ -13,15 +13,8 @@
   tags:
     - configuration
 
-- name: Firewall Enable rule for Remote Desktop Services
-  win_shell: Enable-NetFirewallRule -DisplayGroup "Remotedesktop"
-  when: remote_desktop_enabled and register_remote_desktop_enabled.changed
-  tags:
-    - configuration
-
-- name: Firewall Disable rule for Remote Desktop Services
-  win_shell: Disable-NetFirewallRule -DisplayGroup "Remotedesktop"
-  when: not remote_desktop_enabled and register_remote_desktop_enabled.changed
+- name: Firewall Enable or Disable rule for Remote Desktop Services
+  win_shell: "{{ 'Enable-NetFirewallRule' if remote_desktop_enabled else 'Disable-NetFirewallRule' }} -DisplayGroup 'Remotedesktop'"
   tags:
     - configuration
 
