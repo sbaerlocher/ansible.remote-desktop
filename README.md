@@ -1,6 +1,6 @@
 # Ansible Role: remote-desktop
 
-[![Build Status](https://travis-ci.org/sbaerlocher/ansible.remote-desktop.svg?branch=master)](https://travis-ci.org/sbaerlocher/ansible.remote-desktop) [![license](https://img.shields.io/github/license/mashape/apistatus.svg)](https://sbaerlo.ch/licence) [![Ansible Galaxy](https://img.shields.io/badge/ansible--galaxy-remote-desktop-blue.svg)](https://galaxy.ansible.com/sbaerlocher/remote_desktop)
+[![Build Status](https://img.shields.io/travis/sbaerlocher/ansible.remote-desktop.svg?branch=master&style=popout-square)](https://travis-ci.org/sbaerlocher/ansible.remote-desktop) [![license](https://img.shields.io/github/license/mashape/apistatus.svg?style=popout-square)](https://sbaerlo.ch/licence) [![Ansible Galaxy](https://img.shields.io/badge/ansible--galaxy-remote-desktop-blue.svg?style=popout-square)](https://galaxy.ansible.com/sbaerlocher/remote-desktop) [![Ansible Role](https://img.shields.io/ansible/role/d/27482.svg?style=popout-square)](https://galaxy.ansible.com/sbaerlocher/remote-desktop)
 
 ## Description
 
