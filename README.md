@@ -9,7 +9,7 @@ Enables Windows Remote Desktop Services on Windows.
 ## Installation
 
 ```bash
-ansible-galaxy install sbaerlocher.remote-desktop
+ansible-galaxy install sbaerlocher.remote_desktop
 ```
 
 ## Requirements
